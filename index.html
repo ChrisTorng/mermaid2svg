@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mermaid SVG Exporter</title>
+    <meta
+      name="description"
+      content="Extract Mermaid diagrams from Markdown and download each diagram as SVG."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Markdown Mermaid Exporter</p>
+          <h1>Mermaid SVG Exporter</h1>
+        </div>
+        <a class="repo-link" href="https://github.com/ChrisTorng/mermaid2svg" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </header>
+
+      <section class="input-panel" aria-labelledby="input-title">
+        <div class="panel-heading">
+          <div>
+            <h2 id="input-title">Markdown input</h2>
+            <p>Upload a Markdown file or paste the full Markdown content below.</p>
+          </div>
+        </div>
+
+        <label class="file-drop" for="fileInput">
+          <span class="file-drop-title">Choose a Markdown file</span>
+          <span id="fileName" class="file-drop-meta">No file selected</span>
+          <input id="fileInput" type="file" accept=".md,.markdown,text/markdown,text/plain">
+        </label>
+
+        <label class="text-input-label" for="markdownInput">Markdown content</label>
+        <textarea
+          id="markdownInput"
+          spellcheck="false"
+          placeholder="Paste Markdown with ```mermaid fenced blocks here..."
+        ></textarea>
+      </section>
+
+      <section class="results-panel" aria-labelledby="results-title">
+        <div class="panel-heading">
+          <div>
+            <h2 id="results-title">Diagrams</h2>
+            <p id="statusText">No diagrams rendered yet.</p>
+          </div>
+          <div class="panel-actions">
+            <button id="downloadSvgZipButton" class="secondary-button" type="button" disabled>Download SVG ZIP</button>
+            <button id="clearButton" class="secondary-button" type="button">Clear</button>
+          </div>
+        </div>
+        <div id="results" class="results-grid"></div>
+      </section>
+    </main>
+
+    <template id="diagramTemplate">
+      <article class="diagram-card">
+        <div class="diagram-toolbar">
+          <div>
+            <h3 class="diagram-title"></h3>
+            <p class="diagram-meta"></p>
+          </div>
+          <div class="diagram-actions">
+            <button class="secondary-button download-svg" type="button">Download SVG</button>
+          </div>
+        </div>
+        <div class="diagram-preview"></div>
+        <details class="source-details">
+          <summary>Source</summary>
+          <pre><code></code></pre>
+        </details>
+      </article>
+    </template>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

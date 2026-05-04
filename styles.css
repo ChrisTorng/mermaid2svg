@@ -1,0 +1,328 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f5f7f8;
+  color: #172026;
+  --panel: #ffffff;
+  --border: #d8e0e5;
+  --muted: #61717d;
+  --accent: #116d6e;
+  --accent-hover: #0d5a5b;
+  --ink: #172026;
+  --surface: #eef3f4;
+  --danger: #9c2f2f;
+  --shadow: 0 18px 40px rgba(24, 39, 50, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(17, 109, 110, 0.08), rgba(245, 247, 248, 0) 280px),
+    var(--surface);
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 6vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+}
+
+.panel-heading p,
+.diagram-meta,
+.file-drop-meta {
+  color: var(--muted);
+}
+
+.repo-link,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.repo-link,
+.secondary-button {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+}
+
+.repo-link:hover,
+.secondary-button:hover {
+  background: #f7fafb;
+}
+
+.input-panel,
+.results-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.input-panel {
+  padding: 22px;
+}
+
+.results-panel {
+  margin-top: 20px;
+  padding: 22px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.panel-heading p {
+  margin-bottom: 0;
+}
+
+.file-drop {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border: 1px dashed #9db2bd;
+  border-radius: 8px;
+  background: #f9fbfb;
+  cursor: pointer;
+}
+
+.file-drop:hover {
+  border-color: var(--accent);
+}
+
+.file-drop-title {
+  font-weight: 800;
+}
+
+.file-drop input {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.text-input-label {
+  display: block;
+  margin: 18px 0 8px;
+  font-weight: 800;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 320px;
+  resize: vertical;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: #fbfcfd;
+  color: var(--ink);
+  font-family: "Cascadia Code", Consolas, "Liberation Mono", monospace;
+  line-height: 1.5;
+}
+
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(17, 109, 110, 0.14);
+}
+
+.results-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.diagram-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.diagram-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.diagram-title {
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.diagram-meta {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+.diagram-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.diagram-preview {
+  min-height: 180px;
+  padding: 18px;
+  overflow: auto;
+  background:
+    linear-gradient(45deg, #f7f9fa 25%, transparent 25%),
+    linear-gradient(-45deg, #f7f9fa 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f7f9fa 75%),
+    linear-gradient(-45deg, transparent 75%, #f7f9fa 75%);
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0;
+  background-size: 20px 20px;
+}
+
+.diagram-preview svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.source-details {
+  border-top: 1px solid var(--border);
+  background: #fbfcfd;
+}
+
+.source-details summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.source-details pre {
+  margin: 0;
+  padding: 0 16px 16px;
+  overflow: auto;
+}
+
+.source-details code {
+  font-family: "Cascadia Code", Consolas, "Liberation Mono", monospace;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.empty-state,
+.error-state {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfcfd;
+}
+
+.error-state {
+  border-color: rgba(156, 47, 47, 0.35);
+  color: var(--danger);
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 20px;
+  }
+
+  .app-header,
+  .panel-heading,
+  .diagram-toolbar {
+    display: grid;
+  }
+
+  .repo-link,
+  .secondary-button {
+    width: 100%;
+  }
+
+  .panel-actions,
+  .diagram-actions {
+    justify-content: stretch;
+  }
+}
